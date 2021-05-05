@@ -6,6 +6,7 @@
 ## How to use
 ```javascript
 require("object.tohtml");
+const fs = require("fs");
 let obj = {
 	html: { 
 	  head: { 
@@ -17,7 +18,7 @@ let obj = {
 	}
 }
 
-obj.toHtml(process stdin);
+obj.toHtml(fs.createWriteStream("index.html"));
 // <!doctype html><html><head><title>Hello world!</title></head><body><h1>Hello world!</h1></body></html>
 ```
 
