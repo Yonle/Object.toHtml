@@ -42,4 +42,3 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	}
 	setTimeout(() => c.end(), 1);
 }
- 
