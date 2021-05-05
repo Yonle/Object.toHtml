@@ -6,10 +6,10 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	    if (typeof obj[i] == "object") {
 	        c.write(`<${i}>`);
 			obj[i].toHtml(c, true);
-			c.write(`</${i}>`);
+			c.write(`</${i.split(" ")[0]}>`);
 	    	continue;
 	    }
-		c.write(`<${i}>${obj[i]}</${i}>`);
+		c.write(`<${i}>${obj[i]}</${i.split(" ")[0]}>`);
 	}
 	() => c.end();
 }

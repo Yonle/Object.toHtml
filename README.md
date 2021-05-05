@@ -3,8 +3,9 @@
 	<p>A simple package that let's you to convert Object into HTML!</p>
 </center>
 
-## How to use this
+## How to use
 ```javascript
+require("object.tohtml");
 let obj = {
 	html: { 
 	  head: { 
@@ -20,6 +21,14 @@ obj.toHtml(process stdin);
 // <!doctype html><html><head><title>Hello world!</title></head><body><h1>Hello world!</h1></body></html>
 ```
 
+### Adding `src` on `img`
+```
+{
+	"img src='./image.png'": {
+		....
+	}
+}
+```
 # Community
 - [Discord](https://dsc.gg/yonle)
 - [Telegram](https://t.me/yonlecoder)
