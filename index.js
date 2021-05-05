@@ -33,5 +33,5 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	    }
 		c.write(`<${i}>${obj[i]}</${i.split(" ")[0]}>`);
 	}
-	() => c.end();
+	setTimeout(() => c.end(), 1);
 }
