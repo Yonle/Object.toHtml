@@ -23,13 +23,13 @@ obj.toHtml(fs.createWriteStream("index.html"));
 ```
 
 # API
-## `argsOnly`
-`argsOnly` is used for filling a argument into a tag like `meta` or `img`. It's used for Filling all required argument in `meta` or `img` tag.
+## `flagOnly`
+`flagOnly` is used to adding a flag into a tag like `meta` or `img`. Mostly used for Filling all required flag in `meta` or `img` tag.
 #### Example 1
 ```json
 {
 	meta: {
-		argsOnly: true,
+		flagOnly: true,
 		name: "description",
 		content: "My website!"
 	}
@@ -43,7 +43,7 @@ Writes:
 ```json
 {
 	img: {
-		argsOnly: true,
+		flagOnly: true,
 		src: "..."
 	}
 }
@@ -53,20 +53,22 @@ Writes:
 <img src="...">
 ```
 
-## `withCloseTag`
-`withCloseTag` is used for a tag like `script`, Same as `argsOnly` does but with close tag.
+## `flag`
+`flag` is a object that used to adding a flag into a element
 
 ```json
 {
-	script: {
-		withCloseTag: true,
-		src: "..."
+	div: {
+		flag: {
+			class: "element"
+		},
+		h1: "Hello World!"
 	}
 }
 ```
 Writes:
 ```html
-<script src="..."></script>
+<div class="element"><h1>Hello World!</h1></div>
 ```
 
 ## Alternative way to Writting argument
