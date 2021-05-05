@@ -1,12 +1,12 @@
-const filter = ["toHtml", "argsOnly", "withCloseTag", "flag"];
+const filter = ["toHtml", "flagOnly", "flag"];
 
 Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
  	let obj = this;
-	if (!noDoctype) c.write("<!doctype html>");
+	if (!noDoctype) c.write("<!DOCTYPE html>");
 	for ( let i in obj ) {
 		if (filter.includes(i.split(" ")[0])) continue;
 	    if (typeof obj[i] == "object") {
-	    	if (obj[i].argsOnly) {
+	    	if (obj[i].flagOnly) {
 	    		c.write(`<${i}`);
 	    		for ( let name in obj[i] ) {
 	    			if (filter.includes(name.split(" ")[0])) continue;
@@ -15,15 +15,7 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	    		c.write(">");
 	    		continue;
 	    	} else {
-	    		if (obj[i].withCloseTag) {
-	    			c.write(`<${i}`);
-	    			for ( let name in obj[i] ) {
-	    				if (filter.includes(name.split(" ")[0])) continue;
-	    				c.write(` ${name}="${obj[i][name]}"`);
-	    			}
-	    			c.write(`></${i}>`);
-	    			continue
-	    		} else if (obj[i].flag && typeof obj[i].flag == "object") {
+	    		if (obj[i].flag && typeof obj[i].flag == "object") {
 					c.write(`<${i}`);
 					for ( let name in obj[i].args ) {
 						if (filter.includes(name.split(" ")[0])) continue;
