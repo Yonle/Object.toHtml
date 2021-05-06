@@ -132,14 +132,14 @@ Writes:
 Because of that, We're doing the 2nd Method. Writting a Array. Fortunately, This method is completely Works as well:
 ```json
 [
-  'html',
+  "html",
   { "h1": 'Hello World', "p": "It's nice to see you there!" },
-  'br',
+  "br",
   {
     "h1": 'This is the 2nd h1!',
     "p": 'See? The Array Method works as well!'
   },
-  '/html'
+  "/html"
 ]
 ```
 Writes:
@@ -207,8 +207,8 @@ Writes:
 Of course. Doing a thing like HTML does is still Looking Fine as well.
 ```json
 [
-	'div align="center"',
-	'/div'
+	"div align='center'"",
+	"/div"
 ]
 ```
 Writes:

@@ -1,6 +1,6 @@
 {
   "name": "object.tohtml",
-  "version": "2.0.0-e",
+  "version": "2.0.0-f",
   "description": "A simple package that let's you to convert Object into HTML!",
   "main": "index.js",
   "scripts": {
