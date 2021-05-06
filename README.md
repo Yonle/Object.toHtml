@@ -28,10 +28,10 @@ obj.toHtml(fs.createWriteStream("index.html"));
 #### Example 1
 ```json
 {
-	meta: {
-		flagOnly: true,
-		name: "description",
-		content: "My website!"
+	"meta": {
+		"flagOnly": true,
+		"name": "description",
+		"content": "My website!"
 	}
 }
 ```
@@ -42,9 +42,9 @@ Writes:
 #### Example 2
 ```json
 {
-	img: {
-		flagOnly: true,
-		src: "..."
+	"img": {
+		"flagOnly": true,
+		"src": "..."
 	}
 }
 ```
@@ -58,11 +58,11 @@ Writes:
 
 ```json
 {
-	div: {
-		flag: {
-			class: "element"
+	"div": {
+		"flag": {
+			"class": "element"
 		},
-		h1: "Hello World!"
+		"h1": "Hello World!"
 	}
 }
 ```
@@ -84,6 +84,139 @@ Writes:
 ```html
 <div id='box'> ..... </div>
 ```
+# FAQ
+## 1. I can't add a same element multiple time / When i add 2 `br` element, It writes 1 Only!!
+In `Object()`, When you write a prototype that already Exist, It'll overwrite it. To bypass this, Object.toHtml has Array Method, Which let's developer to create a multiple element without overwritting another element (Added in v2.0.0):
+```json
+[
+	"br",
+	"br"
+]
+```
+Writes:
+```html
+<br><br>
+```
+
+This can also done inside non-array Object
+```json
+{
+	"div": [
+		"br",
+		"br"
+	]
+}
+```
+Writes:
+```html
+<div><br><br></div>
+```
+Unfortunately, This is way more worse, Because we can't making 2 `div` element.
+
+```json
+{
+	"div": [
+		"br",
+		"br"
+	],
+	"div": [
+		"br",
+		"br"
+	]
+}
+```
+Writes:
+```html
+<div><br><br></div>
+```
+Because of that, We're doing the 2nd Method. Writting a Array. Fortunately, This method is completely Works as well:
+```json
+[
+  'html',
+  { "h1": 'Hello World', "p": "It's nice to see you there!" },
+  'br,'
+  {
+    "h1": 'This is the 2nd h1!',
+    "p": 'See? The Array Method works as well!'
+  },
+  '/html'
+]
+```
+Writes:
+```json
+<!DOCTYPE html><html><h1>Hello World</h1><p>It's nice to see you there!</p><br><h1>This is the 2nd h1!</h1><p>See? The Array Method works as well!</p></html>
+```
+
+## 2. How can i add a flag 
+Add `flag`
+```html
+{
+	"div": {
+		"flag": {
+			"class": "navbar-top"
+		},
+		"....": "...."
+	}
+}
+```
+Writes:
+```html
+<div class="navbar-top"><....>....</....></div>
+```
+
+## 3. How can i write a flag in a element like `meta`,`img` and some tag like that in Juson?
+First off, We need to set `flagOnly` as `true`.
+```json
+{
+	"meta": {
+		"flagOnly": true,
+		"name": "viewport",
+		"content": "width:device-width, initial-scale=1"
+	}
+}
+```
+Writes:
+```html
+<meta name="viewport" content="width:device-width, initial-scale=1">
+```
+## 4. How can i add a flag in Array Method?
+Just do a thing like Object does
+```json
+[
+	{
+		"div": {
+			"flag": {
+				"class": "element1"
+			}
+		}
+	},
+	{
+		"div": {
+			"flag": {
+				"class": "element2"
+			}
+		}
+	}
+]
+```
+Writes:
+```html
+<div class="element1"></div><div class="element2"></div>
+```
+
+Of course. Doing a thing like HTML does is still Looking Fine as well.
+```json
+[
+	'div align="center"',
+	'/div'
+]
+```
+Writes:
+```html
+<div align="center"></div>
+```
+
+Any question? Ask in our Discord Server/Telegram Group!
 # Community
 - [Discord](https://dsc.gg/yonle)
 - [Telegram](https://t.me/yonlecoder)

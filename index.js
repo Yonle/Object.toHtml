@@ -3,6 +3,15 @@ const filter = ["toHtml", "flagOnly", "flag"];
 Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
  	let obj = this;
 	if (!noDoctype) c.write("<!DOCTYPE html>");
+	if (obj[0]) {
+		return obj.forEach((val, num) => {
+			if (typeof val == "object") {
+				val.toHtml(c, true);
+			} else {
+				c.write(`<${val}>`);
+			}
+		});
+	}
 	for ( let i in obj ) {
 		if (filter.includes(i.split(" ")[0])) continue;
 	    if (typeof obj[i] == "object") {
