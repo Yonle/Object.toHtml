@@ -134,7 +134,7 @@ Because of that, We're doing the 2nd Method. Writting a Array. Fortunately, This
 [
   'html',
   { "h1": 'Hello World', "p": "It's nice to see you there!" },
-  'br,'
+  'br',
   {
     "h1": 'This is the 2nd h1!',
     "p": 'See? The Array Method works as well!'
