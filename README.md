@@ -1,7 +1,7 @@
-<center>
+<div align="center">
 	<h1>Object.toHtml</h1>
 	<p>A simple package that let's you to convert Object into HTML!</p>
-</center>
+</div>
 
 ## How to use
 ```javascript
