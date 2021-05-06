@@ -164,7 +164,7 @@ Writes:
 <div class="navbar-top"><....>....</....></div>
 ```
 
-## 3. How can i write a Attributein a element like `meta`,`img` and some tag like that in JSON?
+## 3. How can i write a Attribute in a element like `meta`,`img` and some tag like that in JSON?
 First off, We need to set `attrOnly` as `true`.
 ```json
 {
@@ -179,7 +179,7 @@ Writes:
 ```html
 <meta name="viewport" content="width:device-width, initial-scale=1">
 ```
-## 4. How can i add a Attributein in Array Method?
+## 4. How can i add a Attribute in in Array Method?
 Just do a thing like Object does
 ```json
 [
