@@ -164,7 +164,7 @@ Writes:
 <div class="navbar-top"><....>....</....></div>
 ```
 
-## 3. How can i write a flag in a element like `meta`,`img` and some tag like that in Juson?
+## 3. How can i write a flag in a element like `meta`,`img` and some tag like that in JSON?
 First off, We need to set `flagOnly` as `true`.
 ```json
 {
