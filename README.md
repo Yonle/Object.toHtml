@@ -133,11 +133,11 @@ Because of that, We're doing the 2nd Method. Writting a Array. Fortunately, This
 ```json
 [
   "html",
-  { "h1": 'Hello World', "p": "It's nice to see you there!" },
+  { "h1": "Hello World", "p": "It's nice to see you there!" },
   "br",
   {
-    "h1": 'This is the 2nd h1!',
-    "p": 'See? The Array Method works as well!'
+    "h1": "This is the 2nd h1!",
+    "p": "See? The Array Method works as well!"
   },
   "/html"
 ]
