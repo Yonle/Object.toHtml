@@ -17,9 +17,9 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	    	} else {
 	    		if (obj[i].flag && typeof obj[i].flag == "object") {
 					c.write(`<${i}`);
-					for ( let name in obj[i].args ) {
+					for ( let name in obj[i].flag ) {
 						if (filter.includes(name.split(" ")[0])) continue;
-						c.write(` ${name}="${obj[i].args[name]}"`);
+						c.write(` ${name}="${obj[i].flag[name]}"`);
 					}
 					c.write(">");
 	    		} else {
