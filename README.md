@@ -24,7 +24,7 @@ obj.toHtml(fs.createWriteStream("index.html"));
 
 # API
 ## `attrOnly`
-`attrOnly` is used to adding a Attributeinto a tag like `meta` or `img`. Mostly used for Filling all required Attributein `meta` or `img` tag.
+`attrOnly` is used to adding a Attribute into a tag like `meta` or `img`. Mostly used for Filling all required Attribute in `meta` or `img` tag.
 #### Example 1
 ```json
 {
@@ -54,7 +54,7 @@ Writes:
 ```
 
 ## `attr`
-`attr` is a object that used to adding a Attributeinto a element
+`attr` is a object that used to adding a Attribute into a element
 
 ```json
 {
@@ -71,8 +71,8 @@ Writes:
 <div class="element"><h1>Hello World!</h1></div>
 ```
 
-## Alternative way to Writting argument
-We aren't only giving a trick like that, We're also doing `HTML Argument Mode` on this package!
+## Alternative way to Writting Attribute
+We aren't only giving a trick like that, We're also doing `HTML Attribute Mode` on this package!
 ```json
 {
 	"div id='box'": {
