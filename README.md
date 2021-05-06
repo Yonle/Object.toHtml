@@ -23,13 +23,13 @@ obj.toHtml(fs.createWriteStream("index.html"));
 ```
 
 # API
-## `flagOnly`
-`flagOnly` is used to adding a flag into a tag like `meta` or `img`. Mostly used for Filling all required flag in `meta` or `img` tag.
+## `attrOnly`
+`attrOnly` is used to adding a Attributeinto a tag like `meta` or `img`. Mostly used for Filling all required Attributein `meta` or `img` tag.
 #### Example 1
 ```json
 {
 	"meta": {
-		"flagOnly": true,
+		"attrOnly": true,
 		"name": "description",
 		"content": "My website!"
 	}
@@ -43,7 +43,7 @@ Writes:
 ```json
 {
 	"img": {
-		"flagOnly": true,
+		"attrOnly": true,
 		"src": "..."
 	}
 }
@@ -53,13 +53,13 @@ Writes:
 <img src="...">
 ```
 
-## `flag`
-`flag` is a object that used to adding a flag into a element
+## `attr`
+`attr` is a object that used to adding a Attributeinto a element
 
 ```json
 {
 	"div": {
-		"flag": {
+		"attr": {
 			"class": "element"
 		},
 		"h1": "Hello World!"
@@ -147,12 +147,12 @@ Writes:
 <!DOCTYPE html><html><h1>Hello World</h1><p>It's nice to see you there!</p><br><h1>This is the 2nd h1!</h1><p>See? The Array Method works as well!</p></html>
 ```
 
-## 2. How can i add a flag 
-Add `flag`
+## 2. How can i add a Attribute
+Add `attr`
 ```html
 {
 	"div": {
-		"flag": {
+		"attr": {
 			"class": "navbar-top"
 		},
 		"....": "...."
@@ -164,12 +164,12 @@ Writes:
 <div class="navbar-top"><....>....</....></div>
 ```
 
-## 3. How can i write a flag in a element like `meta`,`img` and some tag like that in JSON?
-First off, We need to set `flagOnly` as `true`.
+## 3. How can i write a Attributein a element like `meta`,`img` and some tag like that in JSON?
+First off, We need to set `attrOnly` as `true`.
 ```json
 {
 	"meta": {
-		"flagOnly": true,
+		"attrOnly": true,
 		"name": "viewport",
 		"content": "width:device-width, initial-scale=1"
 	}
@@ -179,20 +179,20 @@ Writes:
 ```html
 <meta name="viewport" content="width:device-width, initial-scale=1">
 ```
-## 4. How can i add a flag in Array Method?
+## 4. How can i add a Attributein in Array Method?
 Just do a thing like Object does
 ```json
 [
 	{
 		"div": {
-			"flag": {
+			"attr": {
 				"class": "element1"
 			}
 		}
 	},
 	{
 		"div": {
-			"flag": {
+			"attr": {
 				"class": "element2"
 			}
 		}

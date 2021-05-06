@@ -1,4 +1,4 @@
-const filter = ["toHtml", "flagOnly", "flag"];
+const filter = ["toHtml", "attrOnly", "attr"];
 
 Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
  	let obj = this;
@@ -15,7 +15,7 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	for ( let i in obj ) {
 		if (filter.includes(i.split(" ")[0])) continue;
 	    if (typeof obj[i] == "object") {
-	    	if (obj[i].flagOnly) {
+	    	if (obj[i].attrOnly) {
 	    		c.write(`<${i}`);
 	    		for ( let name in obj[i] ) {
 	    			if (filter.includes(name.split(" ")[0])) continue;
@@ -24,11 +24,11 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	    		c.write(">");
 	    		continue;
 	    	} else {
-	    		if (obj[i].flag && typeof obj[i].flag == "object") {
+	    		if (obj[i].attr && typeof obj[i].attr == "object") {
 					c.write(`<${i}`);
-					for ( let name in obj[i].flag ) {
+					for ( let name in obj[i].attr ) {
 						if (filter.includes(name.split(" ")[0])) continue;
-						c.write(` ${name}="${obj[i].flag[name]}"`);
+						c.write(` ${name}="${obj[i].attr[name]}"`);
 					}
 					c.write(">");
 	    		} else {
