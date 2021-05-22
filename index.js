@@ -48,3 +48,5 @@ Object.prototype.toHtml = function toHtml ( c = new PassThrough(), noDoctype ) {
 	if (!noDoctype) c.end();
 	return c;
 }
+
+module.exports = (obj) => Object().toHtml.call(obj);

@@ -235,6 +235,19 @@ SomeObject.toHtml(new StreamCache()).pipe(process.stdout);
 SomeObject.toHtml().pipe(new StreamCache()).pipe(process.stdout);
 ```
 
+## 6. How to use this package if i overwritted Object.prototype.toHtml???
+```javascript
+const render = require("object.tohtml");
+
+render({
+	"html": {
+		"body": {
+			"h1": "Hello World"
+		}
+	}
+}).pipe(process.stdout);
+```
+
 Any question? Ask in our Discord Server/Telegram Group!
 # Community
 - [Discord](https://dsc.gg/yonle)
