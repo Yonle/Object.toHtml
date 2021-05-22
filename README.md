@@ -18,7 +18,7 @@ let obj = {
 	}
 }
 
-obj.toHtml(fs.createWriteStream("index.html"));
+obj.toHtml().pipe(fs.createWriteStream("index.html"));
 // <!doctype html><html><head><title>Hello world!</title></head><body><h1>Hello world!</h1></body></html>
 ```
 
@@ -214,6 +214,25 @@ Of course. Doing a thing like HTML does is still Looking Fine as well.
 Writes:
 ```html
 <div align="center"></div>
+```
+
+## 5. Is old writting function still working?
+Yes. You can still do this:
+```javascript
+SomeObject.toHtml(process.stdout);
+```
+or this:
+```javascript
+SomeObject.toHtml().pipe(process.stdout);
+```
+Even you can extend the passthrough to other:
+```javascript
+const StreamCache = require("stream-cache");
+
+SomeObject.toHtml(new StreamCache()).pipe(process.stdout);
+
+// Or
+SomeObject.toHtml().pipe(new StreamCache()).pipe(process.stdout);
 ```
 
 Any question? Ask in our Discord Server/Telegram Group!

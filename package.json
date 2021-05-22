@@ -1,10 +1,10 @@
 {
   "name": "object.tohtml",
-  "version": "3.0.0-c",
+  "version": "4.0.0",
   "description": "A simple package that let's you to convert Object into HTML!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "Yonle",

@@ -1,16 +1,19 @@
+const { PassThrough } = require("stream");
 const filter = ["toHtml", "attrOnly", "attr"];
 
-Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
+Object.prototype.toHtml = function toHtml ( c = new PassThrough(), noDoctype ) {
  	let obj = this;
 	if (!noDoctype) c.write("<!DOCTYPE html>");
 	if (obj[0]) {
-		return obj.forEach((val, num) => {
+		obj.forEach((val, num) => {
 			if (typeof val == "object") {
 				val.toHtml(c, true);
 			} else {
 				c.write(`<${val}>`);
 			}
 		});
+		c.end();
+		return c;
 	}
 	for ( let i in obj ) {
 		if (filter.includes(i.split(" ")[0])) continue;
@@ -41,5 +44,7 @@ Object.prototype.toHtml = function toHtml ( c, noDoctype ) {
 	    }
 		c.write(`<${i}>${obj[i]}</${i.split(" ")[0]}>`);
 	}
-	setTimeout(() => c.end(), 1);
+
+	if (!noDoctype) c.end();
+	return c;
 }
