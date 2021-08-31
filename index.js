@@ -12,7 +12,7 @@ Object.prototype.toHtml = function toHtml ( c = new PassThrough(), noDoctype ) {
 				c.write(`<${val}>`);
 			}
 		});
-		c.end();
+		if (!noDoctype) c.end();
 		return c;
 	}
 	for ( let i in obj ) {
